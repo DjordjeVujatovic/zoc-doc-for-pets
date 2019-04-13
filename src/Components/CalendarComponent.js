@@ -6,6 +6,14 @@ import DateFnsUtils from '@date-io/date-fns';
 
 const PickerContainer = styled.div`
   margin: 0 6px;
+  width: 130px;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 10px;
 `;
 
 class MaterialUIPickers extends React.Component {
@@ -23,7 +31,7 @@ class MaterialUIPickers extends React.Component {
 
     return (
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        <Grid container justify="center">
+      <Container>
         <PickerContainer>
           <DatePicker
             margin="normal"
@@ -40,7 +48,7 @@ class MaterialUIPickers extends React.Component {
             onChange={this.handleDateChange}
           />
           </PickerContainer>
-        </Grid>
+        </Container>
       </MuiPickersUtilsProvider>
     );
   }
