@@ -11,9 +11,9 @@ const Button = styled.button`
   font-size: 16px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 `;
-const ButtonComponent = ({backgroundColor, buttonText, textColor}) => {
+const ButtonComponent = ({backgroundColor, buttonText, textColor, onClick}) => {
   return (
-    <Button backgroundColor={backgroundColor} textColor={textColor}>{buttonText}</Button>
+    <Button backgroundColor={backgroundColor} textColor={textColor} onClick={onClick}>{buttonText}</Button>
   )
 }
 
