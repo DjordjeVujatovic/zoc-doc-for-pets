@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import rating from '../Assets/rating.png';
+import doctor from '../Assets/doc02.png';
 
 const ProfileHeaderContainer = styled.div`
-  background: linear-gradient(0deg, white 65%, #2D61F6 35%) no-repeat;
+  background: linear-gradient(0deg,white 75%,#2D61F6 0%) no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,32 +12,60 @@ const ProfileHeaderContainer = styled.div`
   margin-bottom: 1rem;
 `;
 
-const DoctorContainer = styled.div`
+const DoctorContainer = styled.img`
   background: deepskyblue;
   height: 150px;
   width: 150px;
   border-radius: 50%;
-  margin: 1.5rem 0;
-`;
-
-const DoctorRatingContainer = styled.div`
+  margin: 1.25rem 0;
+  border: 3px solid white;
+  box-shadow: 0px 5px 10px 0px grey;
 `;
 
 const DoctorDescriptionContainer = styled.div`
-  padding: 14px 4rem;
+  padding: 0px 4rem;
+  line-height: 22px;
 `;
 
+const RatingImage = styled.img`
+  width: 200px;
+  margin: 10px 0;
+`;
+
+const DoctorName = styled.p`
+  font-family: Circular Std;
+  font-size: 20px;
+  line-height: 16px;
+  text-align: center;
+  color: #2D61F6;
+  margin: 8px 0;
+`;
+
+const DoctorContactInfoContainer = styled.div`
+  text-align: center;
+  margin-bottom: 12px;
+
+`;
+
+const DoctorInfo = styled.p`
+  margin: 6px 0;
+`;
 const ProfileHeaderComponent = () => {
   return (
     <ProfileHeaderContainer>
-      <DoctorContainer />
-      <DoctorRatingContainer>
-        <div>Doctor Name</div>
-        <div>Doctor Rating</div>
-      </DoctorRatingContainer>
+      <DoctorContainer src={doctor} />
+      <div>
+        <DoctorName>Dr. Monika Fischer</DoctorName>
+        <RatingImage src={rating}/>
+      </div>
       <DoctorDescriptionContainer>
-        <p>"The most comprehensive veterinary care in Silicon Valley. Welcome to Serra Veterinary Hospital, Inc"</p>
+        <p>“The Most Comprehensive Veterinary Care In Silicon Valley Welcome to Serra Veterinary Hospital, Inc.”</p>
       </DoctorDescriptionContainer>
+      <DoctorContactInfoContainer>
+        <DoctorInfo>Specialty: Dogs, cats, and horses</DoctorInfo>
+        <DoctorInfo>Email: monika.fischer@gmail.com</DoctorInfo>
+        <DoctorInfo>Contact: +1 405 232 567</DoctorInfo>
+      </DoctorContactInfoContainer>
     </ProfileHeaderContainer>
   )
 }

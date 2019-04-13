@@ -30,8 +30,8 @@ const FormComponent = () => {
     </FormContainer>
     <CalendarComponent />
     <ButtonsContainer>
-      <ButtonComponent backgroundColor="white" textColor="black" buttonText="Cancel"/>
       <ButtonComponent backgroundColor="#2D61F6" textColor="white" buttonText="Book Appointment"/>
+      <ButtonComponent backgroundColor="white" textColor="black" buttonText="Cancel"/>
     </ButtonsContainer>
     </div>
   )
