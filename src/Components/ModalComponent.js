@@ -2,15 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import { setBookingState } from '../redux/bookingStateActions';
 import Modal from '@material-ui/core/Modal';
 import ButtonComponent from './ButtonComponent';
 import styled from 'styled-components';
 import WomanDog from '../Assets/woman&dog.png';
+import { connect } from 'react-redux';
 
 const styles = theme => ({
   paper: {
     position: 'absolute',
-    width: '250px',
+    width: '285px',
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
     padding: theme.spacing.unit * 4,
@@ -21,7 +23,7 @@ const styles = theme => ({
 
 const StyledModal = styled.div`
   top: 45%;
-  left: 58%;
+  left: 56.5%;
   transform: translate(-57%, -47%);
   border-radius: 13px;
   display: flex;
@@ -34,10 +36,12 @@ const StyledModal = styled.div`
 const StyledImage = styled.img`
   height: 200px;
   width: 200px;
+  margin: 1.5rem 0;
 `;
 class SimpleModal extends React.Component {
   state = {
     open: false,
+    bookingConfirmed: false,
   };
 
   handleOpen = () => {
@@ -46,6 +50,7 @@ class SimpleModal extends React.Component {
 
   handleClose = () => {
     this.setState({ open: false });
+    this.props.setBookingState();
   };
 
   render() {
@@ -64,8 +69,11 @@ class SimpleModal extends React.Component {
           <StyledModal className={classes.paper}>
             <StyledImage src={WomanDog}/>
             <Typography variant="subtitle1" id="simple-modal-description">
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+              Great, we’ve got you
+              confirmed for your appoitment!
+              You'll receive a confirmation via text too.
             </Typography>
+            <ButtonComponent backgroundColor="#2bd594" textColor="white" buttonText="Thank you" onClick={this.handleClose}/>
           </StyledModal>
         </Modal>
       </div>
@@ -79,5 +87,14 @@ SimpleModal.propTypes = {
 
 // We need an intermediary variable for handling the recursive nesting.
 const SimpleModalWrapped = withStyles(styles)(SimpleModal);
+const mapStateToProps = state => ({
+  bookingState: state.bookingState,
+});
 
-export default SimpleModalWrapped;
+const mapDispatchToProps = dispatch => ({
+  setBookingState: () => {
+    dispatch(setBookingState());
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SimpleModalWrapped);

@@ -6,7 +6,8 @@ import TextField from '@material-ui/core/TextField';
 import CalendarComponent from './CalendarComponent';
 import ButtonComponent from './ButtonComponent';
 import ModalComponent from './ModalComponent';
-import Typography from '@material-ui/core/Typography'
+import { connect } from 'react-redux';
+import cat from '../Assets/cat.png';
 
 const FormContainer = styled.div`
   margin: 0 16px;
@@ -17,6 +18,12 @@ const ButtonsContainer = styled.div`
   margin: 0 8px;
 `;
 
+const StyledImage = styled.img`
+  height: 125px;
+  width: 125px;
+  margin: 1.5rem 0;
+`;
+
 class FormComponent extends Component {
   constructor() {
     super();
@@ -24,36 +31,24 @@ class FormComponent extends Component {
     this.state = {
       modalIsOpen: false,
     };
-
-    this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-  }
-
-  openModal() {
-    this.setState({modalIsOpen: true});
-  }
-
-  afterOpenModal() {
-    this.subtitle.style.color = 'red';
-  }
-
-  closeModal() {
-    this.setState({modalIsOpen: false});
   }
 
   render() {
+    console.log(this.props.bookingState)
+    const {bookingState} = this.props;
     return (
       <div>
-        <FormContainer>
-          <FormGroup>
-            <p>Select Pet Type</p>
-            <Select/>
-            <p>Select Service</p>
-            <Select/>
-            <p>Owner Name</p>
-            <TextField />
-          </FormGroup>
+        {!bookingState.bookingComplete &&
+        <div>
+          <FormContainer>
+            <FormGroup>
+              <p>Select Pet Type</p>
+              <Select/>
+              <p>Select Service</p>
+              <Select/>
+              <p>Owner Name</p>
+              <TextField />
+            </FormGroup>
         </FormContainer>
         <CalendarComponent />
         <ButtonsContainer>
@@ -61,7 +56,26 @@ class FormComponent extends Component {
           <ButtonComponent backgroundColor="white" textColor="black" buttonText="Cancel"/>
         </ButtonsContainer>
       </div>
+      }
+      {
+        <div>
+          {
+            bookingState.bookingComplete &&
+            <div>
+              <StyledImage src={cat} />
+              <p>Thank you for your booking!</p>
+              <p>Looking forward to seeing you soon</p>
+            </div>
+          }
+        </div>
+      }
+      </div>
     )
   }
 }
-export default FormComponent;
+
+const mapStateToProps = state => ({
+  bookingState: state.bookingState,
+});
+
+export default connect(mapStateToProps)(FormComponent);
