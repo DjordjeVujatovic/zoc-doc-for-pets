@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import FormGroup from '@material-ui/core/FormGroup';
-import Select from '@material-ui/core/Select';
-import TextField from '@material-ui/core/TextField';
+import Input from '@material-ui/core/Input';
 import CalendarComponent from './CalendarComponent';
 import ButtonComponent from './ButtonComponent';
 import ModalComponent from './ModalComponent';
@@ -11,17 +10,23 @@ import cat from '../Assets/cat.png';
 
 const FormContainer = styled.div`
   margin: 0 16px;
+  padding: 16px 0;
   text-align: left;
 `;
 
 const ButtonsContainer = styled.div`
-  margin: 0 8px;
+  margin: 16px 8px;
 `;
 
 const StyledImage = styled.img`
   height: 125px;
   width: 125px;
   margin: 1.5rem 0;
+`;
+
+const StyledHeaders = styled.p`
+  color: #2D61F6;
+  font-weight: 500;
 `;
 
 class FormComponent extends Component {
@@ -42,12 +47,12 @@ class FormComponent extends Component {
         <div>
           <FormContainer>
             <FormGroup>
-              <p>Select Pet Type</p>
-              <Select/>
-              <p>Select Service</p>
-              <Select/>
-              <p>Owner Name</p>
-              <TextField />
+              <StyledHeaders>Pet Type</StyledHeaders>
+              <Input placeholder="Example: Large dog" />
+              <StyledHeaders>Service Type</StyledHeaders>
+              <Input placeholder="Example: Routine grooming" />
+              <StyledHeaders>Owner Name</StyledHeaders>
+              <Input placeholder="Example: Shaggy Rogers" />
             </FormGroup>
         </FormContainer>
         <CalendarComponent />

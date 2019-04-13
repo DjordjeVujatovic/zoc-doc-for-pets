@@ -38,6 +38,7 @@ const StyledImage = styled.img`
   width: 200px;
   margin: 1.5rem 0;
 `;
+
 class SimpleModal extends React.Component {
   state = {
     open: false,
@@ -58,7 +59,6 @@ class SimpleModal extends React.Component {
 
     return (
       <div>
-        <Typography gutterBottom>Click to get the full Modal experience!</Typography>
         <ButtonComponent backgroundColor="#2D61F6" textColor="white" buttonText="Book Appointment" onClick={this.handleOpen}/>
         <Modal
           aria-labelledby="simple-modal-title"

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ProfileHeaderComponent from './Components/ProfileHeaderComponent';
 import FormComponent from './Components/FormComponent';
-import ModalComponent from './Components/ModalComponent'
 
 import './App.css';
 

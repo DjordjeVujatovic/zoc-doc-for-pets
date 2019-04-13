@@ -23,7 +23,7 @@ const DoctorContainer = styled.img`
 `;
 
 const DoctorDescriptionContainer = styled.div`
-  padding: 0px 4rem;
+  padding: 0px 3rem;
   line-height: 22px;
 `;
 
@@ -33,7 +33,7 @@ const RatingImage = styled.img`
 `;
 
 const DoctorName = styled.p`
-  font-family: Circular Std;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-size: 20px;
   line-height: 16px;
   text-align: center;
@@ -43,12 +43,17 @@ const DoctorName = styled.p`
 
 const DoctorContactInfoContainer = styled.div`
   text-align: center;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 
 `;
 
 const DoctorInfo = styled.p`
   margin: 6px 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+`;
+
+const StyledText = styled.p`
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 `;
 const ProfileHeaderComponent = () => {
   return (
@@ -59,7 +64,7 @@ const ProfileHeaderComponent = () => {
         <RatingImage src={rating}/>
       </div>
       <DoctorDescriptionContainer>
-        <p>“The Most Comprehensive Veterinary Care In Silicon Valley Welcome to Serra Veterinary Hospital, Inc.”</p>
+        <StyledText>“The Most Comprehensive Veterinary Care In Silicon Valley Welcome to Serra Veterinary Hospital, Inc.”</StyledText>
       </DoctorDescriptionContainer>
       <DoctorContactInfoContainer>
         <DoctorInfo>Specialty: Dogs, cats, and horses</DoctorInfo>
